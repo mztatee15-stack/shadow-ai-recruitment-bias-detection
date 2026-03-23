@@ -1,0 +1,136 @@
+{
+  "sensitive_attributes": {
+    "gender": {
+      "description": "gender inferred from name or explicit field",
+      "values": [
+        "male",
+        "female",
+        "unknown"
+      ]
+    },
+    "age_group": {
+      "description": "age buckets inferred from text or explicit field",
+      "values": [
+        "young",
+        "mid",
+        "senior",
+        "unknown"
+      ]
+    },
+    "ethnicity": {
+      "description": "ethnicity proxies or explicit field",
+      "values": [
+        "group_a",
+        "group_b",
+        "unknown"
+      ]
+    }
+  },
+  "bias_terms": {
+    "masculine": [
+      "ambitious",
+      "confident",
+      "decisive",
+      "dominant",
+      "fearless",
+      "assertive",
+      "independent",
+      "leader",
+      "objective"
+    ],
+    "feminine": [
+      "supportive",
+      "understanding",
+      "committed",
+      "interpersonal",
+      "loyal",
+      "responsible",
+      "collaborative",
+      "sensitive",
+      "empathic"
+    ],
+    "exclusionary": [
+      "native speaker",
+      "young",
+      "able-bodied",
+      "energetic"
+    ]
+  },
+  "metrics": {
+    "gender_bias_ratio": {
+      "formula": "(masculine_terms + 1) / (feminine_terms + 1)",
+      "description": "ratio of masculine to feminine term frequency"
+    },
+    "demographic_parity": {
+      "description": "difference in selection rates across groups"
+    },
+    "equal_opportunity": {
+      "description": "ratio of true positive rates across groups"
+    }
+  },
+  "file_contracts": {
+    "agent1": {
+      "output": "shared_data/agent1_job_bias.csv",
+      "columns": [
+        "Job Title",
+        "Job Description",
+        "clean_description",
+        "masculine_terms",
+        "feminine_terms",
+        "exclusionary_terms",
+        "gender_bias_ratio"
+      ]
+    },
+    "agent2": {
+      "output": "shared_data/agent2_resume_shortlisting.csv",
+      "columns": [
+        "Name",
+        "Category",
+        "Resume",
+        "clean_resume",
+        "masculine_terms",
+        "feminine_terms",
+        "exclusionary_terms",
+        "gender_bias_ratio",
+        "shortlisted",
+        "predicted_category"
+      ]
+    },
+    "agent3": {
+      "output": "shared_data/agent3_interview_answers.csv",
+      "columns": [
+        "question",
+        "ideal_answer",
+        "generated_answer",
+        "similarity_score",
+        "shortlisted",
+        "gender_bias_ratio"
+      ]
+    },
+    "agent4": {
+      "output": "shared_data/agent4_hiring_predictions.csv",
+      "columns": [
+        "ID",
+        "Name",
+        "decision",
+        "predicted_decision",
+        "predicted_probability",
+        "similarity_score",
+        "shortlisted",
+        "gender_bias_ratio",
+        "gender"
+      ]
+    },
+    "agent5": {
+      "output": "shared_data/agent5_post_hire_results.csv",
+      "columns": [
+        "EmployeeIndex",
+        "AttritionTrue",
+        "AttritionPred",
+        "HighPerformanceTrue",
+        "HighPerformancePred",
+        "PredictedHiringDecision"
+      ]
+    }
+  }
+}
