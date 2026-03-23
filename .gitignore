@@ -1,0 +1,7 @@
+.config/
+sample_data/
+*.docx
+*.zip
+Agent 4*
+__pycache__/
+*.pyc
