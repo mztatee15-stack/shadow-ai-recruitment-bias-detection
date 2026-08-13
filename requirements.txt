@@ -12,3 +12,7 @@ aif360
 gender-guesser
 xgboost
 sentencepiece
+lime
+matplotlib
+seaborn
+plotly

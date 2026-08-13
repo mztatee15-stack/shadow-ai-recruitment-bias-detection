@@ -8,8 +8,8 @@
 ![AIF360](https://img.shields.io/badge/AIF360-Fairness_Metrics-red?style=flat)
 ![Status](https://img.shields.io/badge/Status-Complete-22c55e?style=flat)
 
-> **Built by Tobi Omoode — People Scientist & HR Analytics practitioner**
-> A production-grade 5-agent AI recruitment pipeline that detects bias and governance risks at every stage of hiring — from job description to post-hire monitoring.
+> **Built by Tobi Omoode · Data science & AI practitioner**
+> A 5-agent AI recruitment pipeline that detects bias and governance risks at every stage of hiring — from job description to post-hire monitoring.
 
 ---
 
@@ -112,19 +112,11 @@ Ensemble breakdown: XGBoost (50%) + Random Forest (30%) + Logistic Regression (2
 
 ## 📈 Pipeline Visualisations
 
-> Generated automatically when the notebook runs end-to-end. Charts saved to `/content/outputs/`.
+Running the notebook end-to-end generates three charts in `/content/outputs/`:
 
-### Bias Progression Across the Pipeline
-![Bias Progression](outputs/pipeline_bias_progression.png)
-*How bias signals change at each stage — from job description through to hiring decision*
-
-### Model Performance Comparison
-![Model Performance](outputs/pipeline_model_performance.png)
-*Accuracy, F1-Score and ROC-AUC across all 5 agents*
-
-### Fairness Dashboard
-![Fairness Dashboard](outputs/fairness_dashboard.png)
-*Demographic parity and disparate impact metrics by gender and age group*
+- **Bias progression across the pipeline**: how bias signals change at each stage, from job description through to hiring decision
+- **Model performance comparison**: accuracy, F1-score and ROC-AUC across all 5 agents
+- **Fairness dashboard**: demographic parity and disparate impact metrics by gender and age group
 
 ---
 ## 🔬 Technical Details
@@ -201,6 +193,13 @@ When the notebook runs end-to-end, it produces:
 shadow-ai-recruitment-bias-detection/
 │
 ├── shadow_ai_recruitment_pipeline.ipynb   # Full 5-agent pipeline (119 cells)
+├── multiagent_system.py                   # Agent implementations in script form
+├── coordinator_agents.py                  # Coordinator: runs the agents in sequence
+├── ontology.json                          # Shared bias-term ontology for all agents
+├── requirements.txt                       # Dependencies
+├── data/
+│   ├── agent1_job_descriptions.csv        # Job descriptions input sample
+│   └── agent2_resume_dataset.csv          # Resume dataset input sample
 └── README.md
 ```
 
@@ -220,12 +219,12 @@ shadow-ai-recruitment-bias-detection/
 - Interview dataset (`ankshi_interview_dataset.csv` — 20,000 records)
 - IBM Watson HR dataset (1,470 records — auto-loaded from GitHub in Agent 5)
 
+Sample job description and resume datasets are included in this repository under `data/`.
+
 ### Dependencies
 
 ```bash
-pip install pandas numpy scikit-learn nltk gensim transformers torch sentence-transformers
-pip install fairlearn aif360 shap lime xgboost
-pip install matplotlib seaborn plotly
+pip install -r requirements.txt
 ```
 
 ---
@@ -280,8 +279,9 @@ pip install matplotlib seaborn plotly
 
 ## 👤 About
 
-I'm **Tobi Omoode**, a People Scientist building at the intersection of people data, machine learning, and strategic HR. This is Project 02 of a 6-project HR Analytics portfolio.
+I am **Tobi Omoode**. I build ML models, AI agents and analytics systems, applied so far to people data. This project is part of my applied machine learning portfolio.
 
+[![Portfolio](https://img.shields.io/badge/Portfolio-mztatee15--stack.github.io-185FA5?style=flat)](https://mztatee15-stack.github.io)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Tobi_Omoode-0077B5?style=flat&logo=linkedin)](https://linkedin.com/in/tobi8943)
 [![GitHub](https://img.shields.io/badge/GitHub-mztatee15--stack-181717?style=flat&logo=github)](https://github.com/mztatee15-stack)
 [![Project 01](https://img.shields.io/badge/Portfolio-Attrition_Engine-185FA5?style=flat)](https://github.com/mztatee15-stack/predictive-attrition-model-by-Tobi)
@@ -294,4 +294,4 @@ All datasets used are publicly available or synthetically generated. No real can
 
 ---
 
-*Project 02 of 6 · HR Analytics Portfolio · Tobi Omoode · 2026*
+*Applied ML portfolio · Tobi Omoode · 2026*
